@@ -15,7 +15,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String TAG = this.getClass().getSimpleName();
+    private static final String TAG = "MainActivity";
     private Intent mIntent;
 
     @Override

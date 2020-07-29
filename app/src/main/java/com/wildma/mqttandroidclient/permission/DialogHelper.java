@@ -6,10 +6,6 @@ import android.content.DialogInterface;
 
 import com.wildma.mqttandroidclient.R;
 
-
-/**
- * Desc	        ${DialogHelper}
- */
 public class DialogHelper {
 
     public static void showRationaleDialog(final PermissionUtils.OnRationaleListener.ShouldRequest shouldRequest, Activity activity) {

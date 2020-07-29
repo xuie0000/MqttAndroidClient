@@ -1,13 +1,12 @@
 package com.wildma.mqttandroidclient;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 
-/**
- * Desc	        ${MyApplication}
- */
 public class MyApplication extends Application {
 
+    @SuppressLint("StaticFieldLeak")
     private static Context mContext;
 
     @Override

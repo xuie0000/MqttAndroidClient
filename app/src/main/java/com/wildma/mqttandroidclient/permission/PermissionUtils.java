@@ -26,7 +26,6 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Desc	        ${权限工具类}
  * 注意：需要在清单文件注册PermissionActivity
  */
 public final class PermissionUtils {
@@ -36,14 +35,14 @@ public final class PermissionUtils {
     private static PermissionUtils sInstance;
 
     private OnRationaleListener mOnRationaleListener;
-    private SimpleCallback      mSimpleCallback;
-    private FullCallback        mFullCallback;
-    private ThemeCallback       mThemeCallback;
-    private Set<String>         mPermissions;
-    private List<String>        mPermissionsRequest;
-    private List<String>        mPermissionsGranted;
-    private List<String>        mPermissionsDenied;
-    private List<String>        mPermissionsDeniedForever;
+    private SimpleCallback mSimpleCallback;
+    private FullCallback mFullCallback;
+    private ThemeCallback mThemeCallback;
+    private Set<String> mPermissions;
+    private List<String> mPermissionsRequest;
+    private List<String> mPermissionsGranted;
+    private List<String> mPermissionsDenied;
+    private List<String> mPermissionsDeniedForever;
 
     /**
      * 获取应用权限
@@ -75,9 +74,6 @@ public final class PermissionUtils {
 
     /**
      * 判断权限是否已授权
-     *
-     * @param permissions
-     * @return
      */
     public static boolean isGranted(final String... permissions) {
         for (String permission : permissions) {
