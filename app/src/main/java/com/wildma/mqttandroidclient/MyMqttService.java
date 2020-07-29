@@ -9,9 +9,10 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
@@ -34,9 +35,10 @@ public class MyMqttService extends Service {
     public final   String             TAG            = MyMqttService.class.getSimpleName();
     private static MqttAndroidClient  mqttAndroidClient;
     private        MqttConnectOptions mMqttConnectOptions;
-    public         String             HOST           = "tcp://192.168.1.10:61613";//服务器地址（协议+地址+端口号）
+//    public         String             HOST           = "tcp://192.168.1.10:61613";//服务器地址（协议+地址+端口号）
+    public         String             HOST           = "tcp://10.10.10.8:8083";//服务器地址（协议+地址+端口号）
     public         String             USERNAME       = "admin";//用户名
-    public         String             PASSWORD       = "password";//密码
+    public         String             PASSWORD       = "public";//密码
     public static  String             PUBLISH_TOPIC  = "tourist_enter";//发布主题
     public static  String             RESPONSE_TOPIC = "message_arrived";//响应主题
     @SuppressLint("MissingPermission")
