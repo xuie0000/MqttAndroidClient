@@ -36,7 +36,7 @@ public class MyMqttService extends Service {
     private static MqttAndroidClient  mqttAndroidClient;
     private        MqttConnectOptions mMqttConnectOptions;
 //    public         String             HOST           = "tcp://192.168.1.10:61613";//服务器地址（协议+地址+端口号）
-    public         String             HOST           = "tcp://10.10.10.8:8083";//服务器地址（协议+地址+端口号）
+    public         String             HOST           = "tcp://10.10.10.8:1883";//服务器地址（协议+地址+端口号）
     public         String             USERNAME       = "admin";//用户名
     public         String             PASSWORD       = "public";//密码
     public static  String             PUBLISH_TOPIC  = "tourist_enter";//发布主题
