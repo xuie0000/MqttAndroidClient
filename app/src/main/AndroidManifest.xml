@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".permission.PermissionUtils$PermissionActivity"
+            android:name=".utils.PermissionUtils$PermissionActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:multiprocess="true"
             android:theme="@style/ActivityTransparent"

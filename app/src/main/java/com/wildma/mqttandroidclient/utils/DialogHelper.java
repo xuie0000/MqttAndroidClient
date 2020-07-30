@@ -1,4 +1,4 @@
-package com.wildma.mqttandroidclient.permission;
+package com.wildma.mqttandroidclient.utils;
 
 import android.app.Activity;
 import android.app.AlertDialog;

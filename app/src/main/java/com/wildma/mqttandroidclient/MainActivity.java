@@ -7,10 +7,11 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.wildma.mqttandroidclient.permission.DialogHelper;
-import com.wildma.mqttandroidclient.permission.PermissionConstants;
-import com.wildma.mqttandroidclient.permission.PermissionUtils;
+import com.wildma.mqttandroidclient.utils.DialogHelper;
+import com.wildma.mqttandroidclient.utils.PermissionConstants;
+import com.wildma.mqttandroidclient.utils.PermissionUtils;
 
+import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void publish(View view) {
         //模拟闸机设备发送消息过来
-        MyMqttService.publish("tourist enter");
+        MyMqttService.publish("tourist enter " + new Date().toString());
     }
 
     /**

@@ -1,4 +1,4 @@
-package com.wildma.mqttandroidclient.permission;
+package com.wildma.mqttandroidclient.utils;
 
 import android.Manifest;
 import android.Manifest.permission;

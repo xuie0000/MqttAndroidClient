@@ -6,13 +6,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+
+import com.wildma.mqttandroidclient.utils.PreferencesUtil;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
@@ -22,6 +23,8 @@ import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
+
+import java.util.UUID;
 
 /**
  * Author       wildma
@@ -35,9 +38,10 @@ public class MyMqttService extends Service {
     @SuppressLint("StaticFieldLeak")
     private static MqttAndroidClient mqttAndroidClient;
     /**
-     * 服务器地址（协议+地址+端口号）
+     * 服务器地址（协议+地址+端口号）TODO 填写测试IP
      */
-    public static final String HOST = "tcp://10.10.10.8:1883";
+    public static final String IP = "xx.xx.xx.xx";
+    public static final String HOST = "tcp://" + IP + ":1883";
     public static final String USERNAME = "admin";
     public static final String PASSWORD = "public";
 
@@ -51,11 +55,9 @@ public class MyMqttService extends Service {
      */
     public static String RESPONSE_TOPIC = "message_arrived";
     /**
-     * 客户端ID，一般以客户端唯一标识符表示，这里用设备序列号表示
+     * 客户端ID https://developer.android.com/training/articles/user-data-ids
      */
-    @SuppressLint("MissingPermission")
-    public String CLIENT_ID = Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
-            ? Build.getSerial() : Build.SERIAL;
+    public static final String CLIENT_ID = PreferencesUtil.getString("uuid", UUID.randomUUID().toString());
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -105,6 +107,7 @@ public class MyMqttService extends Service {
      * 初始化
      */
     private void init() {
+        Log.d(TAG, "host:" + HOST + ", client_id:" + CLIENT_ID);
         mqttAndroidClient = new MqttAndroidClient(this, HOST, CLIENT_ID);
         //设置监听订阅消息的回调
         mqttAndroidClient.setCallback(mqttCallback);
@@ -129,7 +132,7 @@ public class MyMqttService extends Service {
         try {
             mMqttConnectOptions.setWill(topic, message.getBytes(), qos, false);
         } catch (Exception e) {
-            Log.i(TAG, "Exception Occured", e);
+            Log.e(TAG, "Exception Occured", e);
             doConnect = false;
             iMqttActionListener.onFailure(null, e);
         }

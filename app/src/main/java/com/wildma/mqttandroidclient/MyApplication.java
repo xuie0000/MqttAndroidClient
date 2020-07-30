@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 
+import com.wildma.mqttandroidclient.utils.PreferencesUtil;
+
 public class MyApplication extends Application {
 
     @SuppressLint("StaticFieldLeak")
@@ -13,6 +15,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         mContext = this;
+        PreferencesUtil.init(this);
     }
 
     public static Context getContext() {
